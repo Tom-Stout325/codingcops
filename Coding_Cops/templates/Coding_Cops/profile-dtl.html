@@ -1,0 +1,88 @@
+{% extends 'index.html' %} 
+{% load static %} 
+
+{% block content %}
+
+    <body>
+        <div>
+            <div>
+                <h1 
+                    style="
+                        text-align: center; 
+                        margin-top: 6rem; 
+                        margin-bottom: 6rem;">
+                    {{ profile.user.first_name}} {{profile.user.last_name }}'s Profile
+                </h1>
+            </div>
+            <div 
+                style="
+                    width: 95%;
+                    margin: auto;">
+                <div class="row">
+                    <div 
+                        class="col-sm-3"
+                        style="
+                            border-right: solid 1px blue;">
+                        <div
+                            style="
+                                text-align: center;">
+                            <img 
+                                src="{{STATIC_URL}}/images/user-default.png" width="60%"/>
+                        </div>              
+                    <div style="text-align: center; ">
+                        <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
+                        <h2>{{profile.agency}}</h2>
+                    </div>
+                </div>
+                <div 
+                    class="col-sm-5" 
+                    style="
+                        margin-left: 3rem; 
+                        margin-top: 2rem;
+                        border-right: 1px solid blue; ">   
+                    <h3>{{ profile.bio }}</h3>
+                    <br/>
+                    <div 
+                        style="
+                            text-align: center">
+                        <h2>My Links</h2>
+
+                        {% if profile.social_github  %}
+                            <h4>
+                            <i class="fa-brands fa-github"></i>&nbsp;
+                            <a href={{ x.social_github }}>{{ profile.social_github }}</a></h4>
+                        {% endif %}
+                        {% if profile.social_linkedin  %}
+                            <h4>
+                            <i class="fa-brands fa-linkedin"></i>&nbsp;
+                            <a href={{ x.social_linkedin }}>{{ profile.social_linkedin}}</a></h4>
+                        {% endif %}
+                        {% if profile.social_website  %}
+                            <h4>
+                            <i class="fa-solid fa-code"></i>&nbsp;
+                            <a href={{ x.social_website }}>{{ profile.social_website }}</a></h4>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h2 style="text-align: center">Tech Skills</h2>
+                </div>
+                <div
+                    style="
+                        text-align: center;">
+                    <a
+                        style="
+                            width: 20rem; 
+                            margin: 5rem;
+                            font-size: 20px" 
+                        class="button-21" 
+                        role="button"
+                        href="{% url 'profiles' %}">
+                        Go Back 
+                    </a>    
+                </div> 
+            </div>
+        </div>  
+    </body>
+
+{% endblock %}

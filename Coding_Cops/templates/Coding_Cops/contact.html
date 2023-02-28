@@ -1,0 +1,60 @@
+{% extends 'index.html' %} 
+{% load crispy_forms_tags %}
+{% load static %} 
+
+{% block content %}
+
+    {% if submitted %}
+        <p class="success">
+            Your message was submitted successfuly.  Thank you
+        </p>
+    {% endif %}
+
+<body>
+    <div>
+        <div>
+            <h1 style="
+                  text-align: center; 
+                  margin-bottom: 5vmax;
+                  margin-top: 5vmax;
+                  font-size: 3vmax;
+                  font-weight: 400;">
+                Get in touch with CodingCops</h1>
+            <p 
+                style="
+                    text-align: center; 
+                    margin-bottom: 5vmax;
+                    margin-top: 5vmax;
+                    font-size: 1.5vmax;
+                    font-weight: 400;">
+                Questions, comments, or want to get involved?
+            </p>
+        </div>
+    <div class="container"
+        style="
+            padding: 3rem;
+            text-align: left;">
+            <h2 style="
+                text-align: cenet:
+                font-weight: 300;">
+            Contact CodingCops
+            </h2>
+        <form 
+            method="POST" 
+            action="{% url 'contact' %}" 
+            novalidate>
+            {% csrf_token %} 
+            {{ form|crispy }}
+            <button 
+                class = "button-21" 
+                value="submit" 
+                type="submit">
+                Send
+            </button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}
+
+{% comment %} https://www.youtube.com/watch?v=KRIV3tFIRhY&t=201s {% endcomment %}

@@ -1,0 +1,289 @@
+{% extends 'index.html' %} 
+
+{% load static %} 
+
+{% block content %}
+
+{% if submitted %}
+    <p class="success">
+        Your message was submitted successfuly.  Thank you
+    </p>
+{% endif %}
+
+<head>
+    <style>
+        body {
+        
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact_cont {
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            text-align: center;
+            width: 90%;
+            margin: auto;
+            background: transparent;
+            box-shadow: 0 0 15px rgb(255, 255, 255);
+            border-radius: 25px;
+            padding: 3rem;
+        }
+        .contact_top .contact_header {
+            margin-top: 5vh;
+            color: #0021df;
+            font-size: 4vh;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 56px;
+            letter-spacing: 0.20000000298023224px;
+            text-align: center;
+        }
+        .contact_top .contact_text {
+            margin: 40px 40px;
+            color: #830404;
+            font-size: 3vh;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 40px;
+            letter-spacing: 0px;
+            text-align: center;
+        }
+        .contact_top_sec .contact_form {
+            background: transparent;
+            border-radius: 8px;
+            margin: 80px auto;
+            width: 80%;
+            padding: 40px;
+        
+        }
+        .contact_form .input-field {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            line-height: 44px;
+            margin-bottom: 40px;
+        }
+        .contact_form label {
+            position: absolute;
+            padding: 15px 20px;
+            margin-bottom: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: rgba(255 255 255 / 65%);
+            transition: 0.2s all;
+            cursor: text;
+        }
+        .contact_form input {
+            height: 72px;
+            width: 50vw;
+            border: 0;
+            outline: 0;
+            padding: 0.5rem 20px;
+            box-shadow: none;
+            color: #ffffff;
+            background-color: #262A34;
+            border-radius: 8px;
+        
+        }
+        .contact_form textarea {
+            height: 250px;
+            width: 100%;
+            border: 0;
+            outline: 0;
+            padding: 0.5rem 20px;
+            box-shadow: none;
+            color: #ffffff;
+            background-color: #262A34;
+            border-radius: 8px;
+            padding-top: 15px;
+        }
+        .contact_form input:focus, .contact_form input:valid, .contact_form textarea:focus, .contact_form textarea:valid {
+            border-color: #262A34;
+        
+        }
+        .contact_form input:focus~label, .contact_form input:valid~label, .contact_form textarea:focus~label, .contact_form textarea:valid~label {
+            font-size: 1vw;
+            top: -24px;
+            color: rgba(255 255 255 / 65%);
+        
+        }
+        .contact_form .submit_btn {
+            width: 100%;
+            height: 56px;
+            color: #ffffff;
+            border-radius: 8px;
+            background-color: #0E58F1;
+            border-color: #0E58F1;
+        }
+        .contact_form .okay {
+            width: 80%;
+            height: 56px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            border-radius: 8px;
+            background-color: #0E58F1;
+            border-color: #0E58F1;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+        .modal-content {
+            background: linear-gradient(180deg, #181A20 0%, #1B1F2D 100%);
+        }
+        .thank-you-pop{
+            width:100%;
+            padding:20px;
+            text-align:center;
+        }
+        .thank-you-pop h1{
+            margin: 25px 0;
+            color:#F2F4FF;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: 0em;
+            text-align: center;
+        
+        }
+        .thank-you-pop p{
+            margin-bottom: 25px;
+            color:#F2F4FF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+        @media (max-width: 90%) {
+            .contact_top .contact_text {
+                margin: 40px 80px;
+            }
+        }
+        @media (max-width: 90%) {
+            .contact_top .contact_header {
+                margin-top: 30px;
+                font-size: 35px;
+            }
+            .contact_top .contact_text {
+                margin: 40px 25px;
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 70%) {
+        .contact_top_sec {
+            margin: 0px 20px;
+        }
+            .contact_top .contact_header {
+                font-size: 30px;
+            }
+            .contact_top .contact_text {
+                margin: 20px 0px;
+                font-size: 16px;
+            }
+            .contact_top_sec .contact_form {
+                border-radius: 0px;
+                margin: 0;
+                width: 100%;
+                padding: 16px;
+                margin-bottom: 50px;
+            }
+            .contact_form .okay {
+                width: 60%;
+                height: 40px;
+            }
+            .thank-you-pop h1 {
+                font-size: 20px;
+            }
+            .thank-you-pop p {
+                font-size: 16px;
+            }
+            .contact_form input {
+                height: 56px;
+            }
+            .contact_form label {
+                padding: 6px 20px;
+            }
+            .contact_form input:focus~label, .contact_form input:valid~label, .contact_form textarea:focus~label, .contact_form textarea:valid~label {
+                font-size: 12px;
+                top: -18px;
+            }
+        }
+        @media (max-width: 60%) {
+            .contact_top .contact_header {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <section class="contact_top_sec">
+            <div class="contact_top">
+                <div>
+                    <h1 class="contact_header">Get in touch with CodingCops</h1>
+                    <p class="contact_text">Questions, comments, or want to get involved?</p>
+                </div>
+                
+                <div class="contact_form">
+                    <div class="contact_cont">
+                        <form method="POST" novalidate>
+                            <h1 style="
+                                font-weight: 300;
+                                margin-bottom: 3vh;">Contact Us</h1>
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <input type="text" id="fname" required />
+                            <label for="fname">First name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="lname" required />
+                            <label for="lname">Last name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="email" required />
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="subject" required />
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea rows="5" id="message" name="text" required></textarea>
+                            <label for="message">Type your message here...</label>
+                        </div>
+                        <button class="btn submit_btn" type = "submit" data-toggle="modal" href="#ignismyModal">Submit</button>
+                        <div class="modal fade" id="ignismyModal" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="thank-you-pop">
+                                            <h1>Your message has been submitted!</h1>
+                                            <p>Thank you for contacting us, we'll be in touch!</p>
+                                            <button type="button" class="btn okay" data-dismiss="modal"
+                                                aria-label=""><span>OKAY</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+{% endblock %}
+
+
+
+{% comment %} <button class="btn submit_btn" type = "submit" data-toggle="modal" href="#ignismyModal">Submit</button> {% endcomment %}

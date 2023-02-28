@@ -1,0 +1,107 @@
+{% extends 'index.html' %} 
+{% load static %} 
+
+{% block title %} 
+Info 
+{% endblock%}
+
+{% block content %}
+
+  <body>
+    <div 
+      style="
+        max-width: 90%; 
+        margin: auto">
+      <h3
+        style="
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 300;
+          font-size: 2vw;
+          color: blue;
+          padding-top: 10px;
+          text-align: center;
+          margin-top: 3vmax;
+          margin-bottom: 3vmax;">
+        A place for Police Officers to learn to code!
+      </h3>
+    </div>
+    <div>
+      <div
+        style="
+          display: flex; 
+          text-align: center; 
+          max-width: 60%; 
+          margin: auto;
+          margin-bottom: 3vmax;">
+        <h3
+          style="
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 2vw;">
+          CodingCops is a resource for officers to learn valuable programing
+          skills that can be helpful in maintaining software used by their agency,
+          as well as preparing them for a career outside of law enforcement.
+        </h3>
+      </div>
+      <div
+          style="display: flex; 
+            text-align: center; 
+            max-width: 70%; 
+            margin: auto">
+        <h3
+          style="
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 2vw;">
+          The courses suggested here have been completed by users of CodingCops
+          and officers can rely on those users for support and recommendations.
+        </h3>
+      </div>
+      <div
+          style="
+            display: flex;
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+            background: transparent;">
+        <div>
+          <img
+            src="{{STATIC_URL}}/static/images/word-cloud.png"
+            style="width: 60%;
+                  margin-bottom: 1vh;
+                  margin-top: 3vmax;"/>
+        </div>
+      </div>
+      <div>
+        <h1 style="
+              text-align: center; 
+              margin-bottom: 5vmax;
+              margin-top: 5vmax;
+              font-size: 3vmax;">
+            Programming Technologies
+        </h1>
+      </div>   
+      <div>  
+        <div>
+          <div 
+            class="container"
+            style="
+              padding: 2rem;
+              width: 80%">
+            <div class="row">
+              {% for tech in tech  %}
+                <div class="gallery">
+                  <a href="{% url 'techdtl' tech.slug %}">
+                  <img src="{{ tech.tech_image.url }}" alt="tech image"/>
+                  <h4>{{ tech.title }}</h4>
+                  </a>
+                </div>
+              {% endfor %}
+            </div> 
+          </div>
+        </div>
+      </div>
+  </body>
+  
+{% endblock %}
+

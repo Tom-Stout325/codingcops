@@ -1,0 +1,98 @@
+{% extends 'index.html' %} 
+
+{% load static %} 
+
+{% block content %}
+
+<body>
+    <div 
+      style="
+        max-width: 90%; 
+        margin: auto;
+        margin-top: 4rem;
+        margin-bottom: 4rem; ">
+      <h1
+        style="
+          text-align: center;">
+        All Profiles
+      </h1>
+    </div>
+    <div 
+    style="
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 90%;
+      margin: auto;
+      background: transparent;
+      box-shadow: 0 0 15px rgb(255, 255, 255);
+      border-radius: 25px;
+      padding: 4rem;">
+    <div 
+      class="row"
+      style="width: 100%;
+      margin: auto;">
+      {% for x in profiles %}
+        {% if x.private == False %}
+        <div 
+          class="card" 
+          style="
+            width: 26rem; 
+            margin: 1rem;
+            border-radius: 10px;">
+          <img  class="card-img-top" 
+                src="{{ x.profile_image.url }}"
+                alt="{{ x.title }}"
+                style="
+                  padding: 5px;
+                  border-radius: 8px;"/>
+          <div class="card-body">
+            <h5 class="card-title" style:"font-weight: 600">{{ x.user }}</h5>
+            <p class="card-text" style="font-weight: 300; text-align: center;">Agency:  {{ x.agency }}</p>
+            <hr 
+              style ="
+                border-top: 1px solid blue;
+                width: 50%;
+                margin: auto;">
+            {% if x.social_github %}
+              <p class="card-text" style="font-weight: 300;">GitHub:</p>
+              <p class="card-text" style="font-weight: 400;"><a href={{ x.social_github }}>{{ x.social_github }}</a></p>
+            {% endif %}
+            {% if x.social_linkedin %}
+              <p class="card-text" style="font-weight: 300;">LinkedIn:</p>
+              <p class="card-text" style="font-weight: 400;"><a href={{ x.social_linkedin }}>{{ x.social_linkedin }}</a></p>
+            {% endif %}
+            {% if x.social_website %}
+              <p class="card-text" style="font-weight: 300;">My Website:</p> 
+              <p class="card-text" style="font-weight: 400;"><a href={{ x.social_linkedin }}>{{ x.social_website }}</a></p>
+              <hr style="width: 25%; border: 1px solid gray; margin: auto;  margin-top: 1rem;" >
+              {% endif %}
+            <br />
+            <p class="card-text" style="text-align: center; color: black">{{ x.bio|slice:"50" }}</p>
+            <br/>
+            <hr 
+              style ="
+                border-top: 1px solid blue;
+                width: 50%;
+                margin: auto;">
+              <a 
+                class="button-21"
+                href="{% url 'profilesDtl' x.slug %}"
+                
+                style="
+                  display: block; 
+                  position: absolute;
+                  bottom: 10;
+                  left: 70;
+                  width: 50%;
+                  font-size: 1rem;">
+                View Profile</a>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+{% endblock %}

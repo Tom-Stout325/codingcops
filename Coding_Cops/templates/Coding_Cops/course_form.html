@@ -1,0 +1,15 @@
+{% extends 'index.html' %} 
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body style="margin-top: 7vh">
+  
+  <div class='row'>
+    <div class='col-sm-6'>
+    {% crispy form %}
+    </div>
+  </div>
+</body>
+{% endblock %}

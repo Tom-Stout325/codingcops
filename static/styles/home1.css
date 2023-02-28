@@ -1,0 +1,132 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: url("/static/images/solid.png") repeat fixed;
+  }
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    background: transparent;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border-radius: 25px;
+  }
+  
+  
+  .gallery {
+    float: none;
+    width: 12vmax;
+    height: 14vmax;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  div.gallery:hover {
+    transform: scale(1.1);
+  }
+  
+  div.gallery img {
+    width: 60%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: bottom;
+    text-decoration: none;
+  }
+  
+  /*********************   HEADER HR   ******************/
+   .skills {
+       max-width: 50%;
+       margin: 40px auto;
+       text-align: center;
+     letter-spacing: 2px;
+     color: rgb(122, 122, 122);
+  }
+   .skills .hr-text {
+       font-size: 14px;
+       position: relative;
+       border: 0;
+       height: 1.5em;
+     letter-spacing: 2px;
+  }
+   .skills .hr-text:before {
+       content: '';
+       background: linear-gradient(to right, transparent, #0510b4, transparent);
+       position: absolute;
+       left: 0;
+       top: 50%;
+       width: 100%;
+       height: 2px;
+     letter-spacing: 2px;
+  }
+   .skills .hr-text:after {
+       content: attr(data-content);
+       position: relative;
+       display: inline-block;
+       color: black;
+       padding: 0 0.5em;
+       line-height: 1.5em;
+       color: #2d00f3;
+       background-color: rgb(205, 205, 205);
+     letter-spacing: 2px;
+  }
+   .skills li {
+       display: inline-block;
+       font-size: 14px;
+     letter-spacing: 2px;
+  }
+   .skills i {
+       font-size: 7px;
+     letter-spacing: 2px;
+  }
+  /*********************  / HEADER HR   ******************/
+
+  .button-21 {
+    align-items: center;
+    appearance: none;
+    background-color: #3EB2FD;
+    background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-radius: 100px;
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s,background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  
+  .button-21:active,
+  .button-21:focus {
+    outline: none;
+  }
+  
+  .button-21:hover {
+    background-position: -20px -20px;
+  }
+  
+  .button-21:focus:not(:active) {
+    box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+  }

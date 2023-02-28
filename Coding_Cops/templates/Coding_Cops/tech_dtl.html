@@ -1,0 +1,70 @@
+{% extends 'index.html' %} 
+{% load static %}
+
+{% block content %}
+
+  {% if messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  {% for message in messages %}
+    <div><strong>{{ message }}</strong></div>
+  {% endfor %}
+  </div>
+  {% endif %}
+  <script>
+    $(".alert").alert();
+  </script>
+
+  <body>
+      <div  
+        class="container"
+        style="
+          margin-top: 5vmax;">
+        <h1
+          style="
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: blue;">
+            {{ tech.title }}
+        </h1>
+      <div>
+        <img src="{{ tech.tech_image.url }}"
+          style="
+            width: 40%"/>
+        <h2>{{ tech.title }}</h2>
+        <h2>{{ tech.description }}</h2>
+      </div>
+      <div>
+        <a 
+          type="button" 
+          class="button-21"
+          style = "
+            padding-left: 3rem;
+            padding-right: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            width: 50%;"
+            href="{{ tech.link }}" target="_blank">
+            Learn More
+        </a>
+      </div>
+      <div>
+        <a 
+          type="button" 
+          class="button-21"
+          style = "
+            padding-left: 3rem;
+            padding-right: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            width: 50%;"
+            href="{% url 'info' %}">
+            Go Back
+        </a>
+      </div>
+    </div>
+  </body>
+
+{% endblock %}

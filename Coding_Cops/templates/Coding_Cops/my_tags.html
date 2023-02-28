@@ -1,0 +1,32 @@
+{% extends 'index.html' %} 
+{% load static %} 
+{% block content %}
+
+
+<body>
+    <div class="container"
+          style="width: 80%">
+        <div class="row">
+          {% for x in techmy_tags  %}
+          <div class="col-md">
+            <a href="{% url 'techdtl' tech.slug %}">
+              <img src="{{ tech.tech_image.url }}" alt="tech image"/>
+              <h4>{{ tech.title }}</h4>
+              </a>
+          </div>
+          {% endfor %}
+        
+        </div>
+      </div>
+
+
+</body>
+
+
+<div class="wrapper">
+    {% for x in my_tags %}
+  <div class="box a">{{ x.name }}</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

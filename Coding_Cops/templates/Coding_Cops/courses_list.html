@@ -1,0 +1,83 @@
+{% extends 'index.html' %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+{% block content %}
+
+  <body>   
+    <div 
+      style="
+        max-width: 100%;
+        margin: auto;">
+      <h1
+      style="
+        text-align: center;
+        margin-bottom: 4vh;
+        font-weight: 400; ">Suggested Courses</h1>
+    </div>
+    <div 
+      style="
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
+        margin: auto;
+        background: transparent;
+        box-shadow: 0 0 15px rgb(255, 255, 255);
+        border-radius: 25px;
+        padding: 4rem;">       
+       <div
+        class="row"
+        style="width: 100%;
+              margin: auto;">
+        {% for x in course %}
+          <div 
+            class="card" 
+            style="
+              width: 26rem; 
+              margin: 1rem;
+              border-radius: 10px;">
+            <img  class="card-img-top" 
+                  src="{{ x.course_image.url }}"
+                  alt="{{ x.title }}"
+                  style="
+                    padding: 5px;
+                    border-radius8px;"/>
+            <div class="card-body">
+              <h5 class="card-title" style:"font-weight: 600">{{ x.title }}</h5>
+              <hr style="width: 25%; border: 1px solid gray; margin: auto;  margin-top: 1rem;" />
+              <p class="card-text" style="font-weight: 300; text-align: left;">By: {{ x.instructor }}</p>
+              <p class="card-text" style="font-weight: 300; text-align: left;">Skill Level: {{ x.level }}</p>
+              <p class="card-text"style="font-weight: 300; text-align: left;">Cost: ${{ x.cost }}</p>
+              <p class="card-text" style="font-weight: 300; text-align: left;">Length: {{ x.length }}</p>
+              <hr style="width: 25%; border: 1px solid gray; margin: auto;  margin-top: 1rem;" />
+              <br />
+              <p class="card-text" style="text-align: center; color: black; margin-bottom: 4rem;">{{ x.description|slice:"50" }}</p>
+              <br />            
+              <a  href="{% url 'courseDtl' x.slug %}"
+                  class="button-21"
+                  style="
+                    display: block; 
+                    position: absolute;
+                    bottom: 10;
+                    left: 60;
+                    width: 60%;">
+                  Learn More
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

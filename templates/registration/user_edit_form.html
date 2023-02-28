@@ -1,0 +1,39 @@
+{% extends 'index.html' %} 
+{% block title %} 
+Edit User Information 
+{% endblock%} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+{% block content %}
+  <body>
+    <div class="row" style="max-width: 60%; margin: auto">
+      <div
+        class="col"
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          margin: auto;
+          background: transparent;
+          box-shadow: 0 0 15px rgb(255, 255, 255);
+          border-radius: 25px;">
+        <div class="form-group">
+          <form method="POST" style="max-width: 80%; margin: auto">
+            <div style="text-align: center">
+              <h1 style="font-weight: 300; font-size: 1.5vmax; color: blue">
+                Update User Information
+              </h1>
+            </div>
+            {% csrf_token %} {{ form|crispy }}
+            <button
+              class="btn btn-primary btn-lg"
+              type="submit"
+              style="padding: 5px 20px">
+              Edit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'index.html' %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+{% block content %}
+
+
+
+  <div>
+      <h1>Add Tech</h1>
+    <div
+      style="
+        width: 50%;
+        margin: auto;">
+        <form class="form" method="POST" action="">
+          {% csrf_token %}
+          <div class="form__field">
+              <label for="formInput#text"> {{field.label}}</label>
+              {{ form|crispy }}
+          </div>
+         
+
+          <input class="button-21" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

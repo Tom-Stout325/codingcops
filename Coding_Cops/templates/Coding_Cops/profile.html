@@ -1,0 +1,127 @@
+{% extends 'index.html' %} 
+{% load static %} 
+{% block content %}
+
+<body>
+  <div>
+    <h1 
+      style="
+        text-align: center; 
+        margin-top: 6rem; 
+        margin-bottom: 6rem;">
+      {{ profile.user.first_name}} {{profile.user.last_name }}'s Profile
+    </h1>
+  </div>
+  <div 
+    style="
+      width: 95%; 
+      margin: auto">
+    <div class="row">
+      <div 
+        class="col-sm-3" 
+          style="
+            border-right: solid 2px blue">
+        <div 
+          style="
+            text-align: center">
+          <img src="{{STATIC_URL}}/images/user-default.png" width="60%" />
+        </div>
+
+        <div 
+          style="
+            text-align: center">
+          <h1>{{ profile.user.first_name}} {{profile.user.last_name }}</h1>
+          <h2>{{profile.agency}}</h2>
+        </div>
+      </div>
+      <div
+        class="col-sm-5"
+        style="
+          margin-left: 3rem;
+          margin-top: 2rem;
+          border-right: 2px solid red;">
+        <h3 
+          style="
+            font-weight: 300">
+            {{ profile.bio }}
+        </h3>
+        <br />
+        <div 
+          style="
+            text-align: center">
+          <h2  
+            style="
+              font-weight: 400">
+            My Links
+          </h2>
+            {% if profile.social_github  %}
+              <h4><i class="fa-brands fa-github"></i>&nbsp;
+                <a href={{ x.social_github }}>{{ profile.social_github }}</a></h4>
+            {% endif %}
+            {% if profile.social_linkedin  %}
+              <h4><i class="fa-brands fa-linkedin"></i>&nbsp;
+                <a href={{ x.social_linkedin }}>{{ profile.social_linkedin}}</a></h4>
+            {% endif %}
+            {% if profile.social_website  %}
+              <h4><i class="fa-solid fa-code"></i>&nbsp;
+                <a href={{ x.social_website }}>{{ profile.social_website }}</a></h4>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h2 style="text-align: center">Tech Skills</h2>
+         
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div>
+  <div style= "text-align: center; margin-bottom: 5vmax; margin-top: 5vmax;">
+    <button  style="width: 25rem; margin: 3rem;" class="button-21" role="button">Update My Profile </button>
+    <button style="width: 25rem; margin: 3rem;" class="button-21" role="button">Update My Courses </button>
+    <button style="width: 25rem; margin: 3rem;" class="button-21" role="button">Update My Tech </button>
+  </div>
+</div>
+
+<div  class="row"
+      style="
+        width: 90%;
+        margin: auto;">
+  <div class='col-sm-6'
+      style="
+        border-left: 2px solid blue;">
+      <h1
+        style="
+          font-weight: 300">
+        My Courses
+      </h1>
+  </div>
+  <table>
+    {% for x in profiles %}
+    <tr>
+      <td>
+        <h4>{{ x.my_tags }}</h4>
+        <p>
+          {{ x.description }}
+        </p>
+      </td>
+      <td class="settings__tableActions">
+        <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-skill' skill.id %}"><i
+            class="im im-edit"></i> Edit</a>
+        <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-skill' skill.id %}?next=/account"><i
+            class="im im-x-mark-circle-o"></i>
+          Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+</body>
+
+{% endblock %}
+
+

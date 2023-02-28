@@ -1,0 +1,66 @@
+{% extends 'index.html' %} 
+{% block title %} Register {% endblock %} 
+
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+{% block content %}
+  <body>
+    <div class="row" style="max-width: 50%; margin: auto">
+      <div
+        class="col"
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          margin: auto;
+          background: transparent;
+          box-shadow: 0 0 15px rgb(255, 255, 255);
+          border-radius: 25px;">
+        <div 
+          class="form-group"
+          style="
+            width: 80%;
+            margin: auto;">
+          <form 
+            method="POST" 
+            style="
+              max-width: 80%; 
+              margin: auto">
+            <div 
+              style="
+                text-align: center">
+              <h1 
+                style="
+                  font-weight: 300; 
+                  color: blue">
+                Register
+              </h1>
+            </div>
+            {% csrf_token %} 
+            {{ form|crispy }}
+            <button
+                class="button-21"
+                type="submit"
+                style="
+                  padding: 5px 30px;
+                  font-size: 20px;
+                  margin: auto;
+                  margin-bottom: 2vmax;">
+                  Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 7vh">
+      <h3 
+        style="
+          width: 100%; 
+          text-align: center;
+           margin: auto;">
+        Already have an account? <a href="{% url 'login'%}">Login </a> here.
+      </h3>
+    </div>
+  </body>
+{% endblock %}
