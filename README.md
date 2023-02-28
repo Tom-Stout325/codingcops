@@ -1,4 +1,4 @@
-![FlightPlan](https://flightplan-static.s3.amazonaws.com/images/FlightPlanLogo.png)
+![Home](static/images/cc_logo.png)
 
 
 
