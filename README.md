@@ -5,15 +5,16 @@
 <h1 align="center">CodingCops</h1>
 
 <h4 align="center">
-CodingCops is a resource center for police officers who want to learn about technology and programing languages.  
-This is currently a work-in-progress and will be updated when complete.
+CodingCops is a resource center for police officers who want to learn about technology and programing languages.  </h4>
+This is currently a work-in-progress and will be updated when complete.</h4>
+<h4 align="center">
 This website will allow officers to log in and create their profile.  They can find information about technologies and courses, and communicate with others who are or have taken the course. 
 </h4>
 
 <h4 align="center">
-This project takes advantage of Django's template inheritance by designing the navbar and hero image for each page in the index.html file, and utilizing them in each of the site's pages.
-
-Users will see a different style for logged in users and visitors not logged in.  I created a CSS for vistors with red and blue floating colors, then created a separate CSS for logged in users for an easier-to-read and less distracting style.
+This project takes advantage of Django's template inheritance by designing the navbar and hero image for each page in the index.html file, and utilizing them in each of the site's pages.</h4>
+<h4 align="center">
+Users will see a different style for logged in users and visitors not logged in.  I created a CSS for vistors with red and blue floating colors, then created a separate CSS for logged in users for an easier-to-read and less distracting style.</h4>
 
 
 ## Technology Stack:
@@ -37,7 +38,7 @@ Users will see a different style for logged in users and visitors not logged in.
 ___
 
 
-### User Information
+## User Information
 1. User agency
 2. Goals
 3. Skill level
@@ -45,12 +46,12 @@ ___
 5. Courses completed
             
 
-###  Technology Information
+##  Technology Information
 1. Name and description
 2. Training resources
 
 
-###  Course Information
+##  Course Information
 1. Courses available
 2. Information:
     * Cost
@@ -64,13 +65,13 @@ ___
 -   Courses Table
 -   Messaging Database  
 
-### Relationships:
+## Relationships:
 1. Courses - Users: Many To Many
 2. Courses - Technologies: One to Many 
 3. Users - Messages: Many to Many
 4. Users - Technologies: Many to Many
 
-### CRUD Operations:
+## CRUD Operations:
 - User Profiles 
 - Courses
 - Technologies
